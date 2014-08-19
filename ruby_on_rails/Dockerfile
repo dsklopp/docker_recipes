@@ -4,7 +4,7 @@ Maintainer Daniel Klopp
 # Thank you famelis at https://github.com/phusion/baseimage-docker/issues/58
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 RUN apt-get update
-RUN apt-get upgrade
+RUN apt-get -y upgrade
 RUN apt-get -y install ssh whois nano git
 RUN apt-get -y install man-db gdb
 RUN apt-get -y install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties
