@@ -1,13 +1,12 @@
 FROM ubuntu:14.04
 Maintainer Daniel Klopp
 # Thank you https://gorails.com/setup/ubuntu/14.04
+# Thank you famelis at https://github.com/phusion/baseimage-docker/issues/58
+RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 RUN apt-get update
-RUN apt-get -y install ssh
-RUN apt-get -y install whois
-RUN apt-get -y install nano
-RUN apt-get -y install git
-RUN apt-get -y install man-db
-RUN apt-get -y install gdb
+RUN apt-get upgrade
+RUN apt-get -y install ssh whois nano git
+RUN apt-get -y install man-db gdb
 RUN apt-get -y install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties
 RUN apt-get -y install libgdbm-dev libncurses5-dev automake libtool bison libffi-dev
 RUN apt-get -y install curl
